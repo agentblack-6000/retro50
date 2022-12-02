@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h1>Log Revision</h1>
+    <form action="/log" method="post">
+        <select name="revisionLog">
+            <option value="_" selected disabled>Subject</option>
+            {% for subject in subjects %}
+                <option value="{{ subject['subject'] }}">{{ subject['subject'] }}</option>
+            {% endfor %}
+        </select>
+
+        <h2>Proficiency: </h2>
+        <div class="slider">
+            <input type="range" name="proficiency" class="form-range" min="1" max="10" step="1" value="1" id="range">
+        </div>
+        <button type="submit">Log Revision</button>
+    </form>
+{% endblock %}

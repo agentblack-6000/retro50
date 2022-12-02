@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h1 id="title">Pomodoro Timer</h1>
+    <h2 id="timer"> click start </h2>
+    <h4>Sessions Completed: </h4>
+    <h3 id="checkmarks">0</h3>
+
+    <br>
+
+    <button class="timer-btn" id="start"> Start </button>
+    <button class="timer-btn" id="reset"> Reset </button>
+{% endblock %}
+
+{% block scripts %}
+    <script src="static/timer.js"></script>
+{% endblock %}
