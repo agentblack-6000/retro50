@@ -165,7 +165,6 @@ def index():
 
 
 @app.route("/about")
-@login_required
 def about():
     # Returns the about page
     return render_template("about.html")
