@@ -4,6 +4,7 @@ import datetime
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from helpers import login_required, validate_password
+import os
 from werkzeug.security import check_password_hash, generate_password_hash
 
 # Constansts
@@ -368,3 +369,7 @@ def reset_subject():
         "INSERT INTO subjects (user_id, subject, start_date) VALUES (?, ?, ?)", user, subject, today)
     flash(f"Reset {subject} succesfully")
     return redirect("/")
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=os.environ.get("PORT", 8080))
