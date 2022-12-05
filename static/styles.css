@@ -62,3 +62,8 @@ html, body {
    margin: 0;
    bottom: 10px;
 }
+
+.about-text {
+    text-align: left;
+    margin: 2% 3%;
+}
