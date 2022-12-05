@@ -2,12 +2,12 @@
 
 {% block main %}
     <form action="/delete" method="post">
-        <select name="subject">
+        <select aria-label="Select subject to delete" name="subject">
             <option value="_" selected disabled>Subject</option>
             {% for subject in subjects %}
                 <option value="{{ subject['subject'] }}">{{ subject['subject'] }}</option>
             {% endfor %}
         </select>
-        <button class="btn btn-primary" type="submit">Delete Subject</button>
+        <button aria-label="Delete selected subject" class="btn btn-primary" type="submit">Delete Subject</button>
     </form>
 {% endblock %}

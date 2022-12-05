@@ -3,8 +3,8 @@
 {% block main %}
     <form action="/add" method="post">
         <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control w-auto mx-auto" id="subject" name="subject" placeholder="Subject" type="text">
+            <input aria-label="Text for subject name" autofocus autocomplete="off" class="form-control w-auto mx-auto" id="subject" name="subject" placeholder="Subject" type="text">
         </div>
-        <button class="btn btn-primary" type="submit">Add Subject</button>
+        <button aria-label="Submit button" class="btn btn-primary" type="submit">Add Subject</button>
     </form>
 {% endblock %}

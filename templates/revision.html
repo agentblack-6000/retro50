@@ -8,7 +8,7 @@
         <form action="/log" method="post" class="revision-text">
             <!-- Displays each subject in database -->
             <h2>Subject revised/studied: </h2>
-            <select name="revisionLog">
+            <select aria-label="Select subject to log a revision" name="revisionLog">
                 <option value="_" selected disabled>Subject</option>
                 {% for subject in subjects %}
                     <option value="{{ subject['subject'] }}">{{ subject['subject'] }}</option>
@@ -20,9 +20,9 @@
             <!-- A basic Bootstrap slider -->
             <div class="slider">
                 <h6 id="proficiency">Drag slider to increase/decrease proficiency</h6>
-                <input type="range" name="proficiency" class="form-range" min="1" max="10" step="1" value="1" id="range">
+                <input aria-label="A proficiency slider" class="form-range" id="range" max="10" min="1" type="range" name="proficiency" step="1" value="1">
             </div>
-            <button type="submit">Log Revision</button>
+            <button aria-label="Log a revision (submit) button" type="submit">Log Revision</button>
             <br>
         </form>
     </section>

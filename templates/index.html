@@ -49,7 +49,7 @@
         <form action="/reset" method="post">
             <h5 class="reset-text">Reset Timetable (delete everything)</h5>
             <br>
-            <button class="reset-btn" type="submit">Reset Timetable</button>
+            <button aria-label="Reset entire timetable button" class="reset-btn" type="submit">Reset Timetable</button>
         </form>
         
         <!-- Form to reset a particular subject -->
@@ -62,7 +62,7 @@
                 {% endfor %}
             </select>
             <br>
-            <button class="reset-btn" type="submit">Reset Subject</button>
+            <button aria-label="Reset selected subject button" class="reset-btn" type="submit">Reset Subject</button>
         </form>
     </section>
 
