@@ -20,15 +20,17 @@ Session(app)
 db = SQL("sqlite:///timetable.db")
 
 
+# Response header setup
 @app.after_request
 def after_request(response):
-    """Ensure responses aren't cached"""
+    # Set up response headers
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
     return response
 
 
+# Login route
 @app.route("/login", methods=["GET", "POST"])
 def login():
     # User reached route via POST (requested login)
@@ -67,6 +69,7 @@ def login():
         return render_template("login.html")
 
 
+# Logout route
 @app.route("/logout")
 def logout():
     # Get rid of any saved user_id
@@ -76,6 +79,7 @@ def logout():
     return redirect("/")
 
 
+# Register a new user
 @app.route("/register", methods=["GET", "POST"])
 def register():
 
@@ -119,6 +123,7 @@ def register():
         return render_template("login.html")
 
 
+# Display main page (retrospective revision timetable)
 @app.route("/")
 @login_required
 def index():
@@ -164,12 +169,14 @@ def index():
     return render_template("index.html", subjects=subjects, REVISION_SESSION_COUNT=REVISION_SESSION_COUNT)
 
 
+# Display about page
 @app.route("/about")
 def about():
     # Returns the about page
     return render_template("about.html")
 
 
+# Display add page and update database
 @app.route("/add", methods=["GET", "POST"])
 @login_required
 def add():
@@ -199,6 +206,7 @@ def add():
         return redirect("/")
 
 
+# Display log revision page and update database
 @app.route("/log", methods=["GET", "POST"])
 @login_required
 def log_revision():
@@ -243,6 +251,7 @@ def log_revision():
             return redirect("/")
 
 
+# Display change password page and update database
 @app.route("/changepwd", methods=["GET", "POST"])
 @login_required
 def change_password():
@@ -277,7 +286,8 @@ def change_password():
         return redirect("/")
 
 
-@app.route("/timer", methods=["GET", "POST"])
+# Display the timer page
+@app.route("/timer", methods=["GET"])
 @login_required
 def timer():
     # Displays timer page, which is run by Javascript
@@ -285,6 +295,7 @@ def timer():
         return render_template("timer.html")
 
 
+# Display the delete subject page and update database
 @app.route("/delete", methods=["GET", "POST"])
 @login_required
 def delete():
@@ -313,6 +324,7 @@ def delete():
         return redirect("/")
 
 
+# Reset the entire timetable
 @app.route("/reset", methods=["POST"])
 @login_required
 def reset_timetable():
@@ -325,6 +337,7 @@ def reset_timetable():
     return redirect("/")
 
 
+# Reset a particular subject
 @app.route("/resetsubj", methods=["POST"])
 @login_required
 def reset_subject():
