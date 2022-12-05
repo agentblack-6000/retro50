@@ -7,7 +7,7 @@ body {
   height: 100%;
 }
 
-/* Styles applied to each webpage */
+/* Styles used in each webpage or a few webpages */
 .nav-content {
   font-family: "Roboto Mono", monospace;
 }
@@ -32,8 +32,6 @@ body {
   margin: 2% 4%;
 }
 
-/* add.html styles */
-/* delete.html styles */
 /* index.html styles */
 .reset-btn {
   margin: 0;
@@ -77,6 +75,10 @@ body {
 /* revision.html styles */
 #range {
   width: 15%;
+}
+
+.revision-text {
+  text-align: center;
 }
 
 /* timer.html styles */

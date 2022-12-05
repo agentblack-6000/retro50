@@ -2,20 +2,55 @@
 
 {% block main %}
     <h1>Log Revision</h1>
-    <form action="/log" method="post">
-        <!-- Displays each subject in database -->
-        <select name="revisionLog">
-            <option value="_" selected disabled>Subject</option>
-            {% for subject in subjects %}
-                <option value="{{ subject['subject'] }}">{{ subject['subject'] }}</option>
-            {% endfor %}
-        </select>
+    <br>
 
-        <h2>Proficiency: </h2>
-        <!-- A basic Bootstrap slider -->
-        <div class="slider">
-            <input type="range" name="proficiency" class="form-range" min="1" max="10" step="1" value="1" id="range">
-        </div>
-        <button type="submit">Log Revision</button>
-    </form>
+    <section>
+        <form action="/log" method="post" class="revision-text">
+            <!-- Displays each subject in database -->
+            <h2>Subject revised/studied: </h2>
+            <select name="revisionLog">
+                <option value="_" selected disabled>Subject</option>
+                {% for subject in subjects %}
+                    <option value="{{ subject['subject'] }}">{{ subject['subject'] }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <br>
+            <h2>Proficiency(1-10): </h2>
+            <!-- A basic Bootstrap slider -->
+            <div class="slider">
+                <h6 id="proficiency">Drag slider to increase/decrease proficiency</h6>
+                <input type="range" name="proficiency" class="form-range" min="1" max="10" step="1" value="1" id="range">
+            </div>
+            <button type="submit">Log Revision</button>
+            <br>
+        </form>
+    </section>
+
+    <section class="content-text">
+        <h2>What counts as a revision-</h2>
+        <p>
+            You must apply your knownledge in some way, not just read notes, to log a revision in the 
+            retrospective revision timetable. A few examples of what counts as a revision are-
+            <ol>
+                <li>Using the Feynman technique.</li>
+                <li>Using the Blurting method.</li>
+                <li>Solving question papers/problem sets/worksheets on the topic.</li>
+                <li>Mind-mapping the concept</li>
+                <li>Using active-recall, i.e asking yourself questions to recall concepts</li>
+            </ol>
+        </p>
+    </section>
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var slider = document.getElementById("range");
+        var proficiency = document.getElementById("proficiency")
+
+        slider.onchange = function () {
+            proficiency.innerHTML = slider.value;
+        }
+    </script>
 {% endblock %}
