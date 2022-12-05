@@ -372,4 +372,4 @@ def reset_subject():
 
 
 if __name__ == "__main__":
-    app.run(host=f"0.0.0.0:${PORT}", port=os.environ.get("PORT", 8080))
+    app.run(port=os.getenv("PORT", default=5000))
