@@ -3,6 +3,7 @@
 {% block main %}
     <h1>Log Revision</h1>
     <form action="/log" method="post">
+        <!-- Displays each subject in database -->
         <select name="revisionLog">
             <option value="_" selected disabled>Subject</option>
             {% for subject in subjects %}
@@ -11,6 +12,7 @@
         </select>
 
         <h2>Proficiency: </h2>
+        <!-- A basic Bootstrap slider -->
         <div class="slider">
             <input type="range" name="proficiency" class="form-range" min="1" max="10" step="1" value="1" id="range">
         </div>

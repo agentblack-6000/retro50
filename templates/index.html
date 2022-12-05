@@ -1,18 +1,22 @@
 {% extends "layout.html" %}
 
 {% block main %}
-    <h1>My Retrospective Revision Timetable</h1>
-    <div class="table-responsive-xl">
+    <!-- Responsive Bootstrap Table -->
+    <section class="table-responsive-xl">
+        <caption>
+            <h1>My Retrospective Revision Timetable</h1>
+        </caption>
         <table class="table table-striped table-borderless">
             <thead>
-                <!-- Table head -->
+                    <!-- Dynamically numbers revisions from one to REVISION_SESSION_COUNT -->
                     <th>Subject</th>
-                    {% for i in range(10) %}
+                    {% for i in range(REVISION_SESSION_COUNT) %}
                         <th>{{ i + 1 }}</th>
                     {% endfor %}
             </thead>
 
             <tbody>
+                <!-- Displays each subject and sets cell background color -->
                 {% for subject in subjects %}
                     <tr>
                         <td>{{ subject['subject'] }}</td>
@@ -21,7 +25,7 @@
                             {% with color = "color_" ~ (i + 1) %}
                             {% with date = subject[revision] %}
                             {% if date != None %}
-                                <td style='background-color: {{ subject[color] }};'>{{ date }}</td>
+                                <td style="background-color: {{ subject[color] }};">{{ date }}</td>
                             {% else %}
                                 <td width="8%" ></td>
                             {% endif %}
@@ -33,27 +37,33 @@
                 {% endfor %}
             </tbody>
         </table>
-    </div>
+    </section>
 
     <br>
     <br>
     <br>
-    <form action="/reset" method="post">
-        <h5 class="reset-text">Reset Timetable (delete everything)</h5>
-        <br>
-        <button class="reset-btn" type="submit">Reset Timetable</button>
-    </form>
 
-    <form action="/resetsubj" method="post">
-        <h5 class="reset-text">Reset Subject (clear entries for a particular subject)</h5>
-        <select class="reset-select" name="resetSubject">
-            <option value="_" selected disabled>Subject</option>
-            {% for subject in subjects %}
-                <option value="{{ subject['subject'] }}">{{ subject['subject'] }}</option>
-            {% endfor %}
-        </select>
-        <br>
-        <button class="reset-btn" type="submit">Reset Subject</button>
-    </form>
+    <!-- Bootstrap forms -->
+    <section>
+        <!-- Form to reset the entire timetable -->
+        <form action="/reset" method="post">
+            <h5 class="reset-text">Reset Timetable (delete everything)</h5>
+            <br>
+            <button class="reset-btn" type="submit">Reset Timetable</button>
+        </form>
+        
+        <!-- Form to reset a particular subject -->
+        <form action="/resetsubj" method="post">
+            <h5 class="reset-text">Reset Subject (clear entries for a particular subject)</h5>
+            <select class="reset-select" name="resetSubject">
+                <option value="_" selected disabled>Subject</option>
+                {% for subject in subjects %}
+                    <option value="{{ subject['subject'] }}">{{ subject['subject'] }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <button class="reset-btn" type="submit">Reset Subject</button>
+        </form>
+    </section>
 
 {% endblock %}
