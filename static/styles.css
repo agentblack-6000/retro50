@@ -11,13 +11,20 @@ body {
 .content {
   font-family: "Roboto Mono", monospace;
   min-height: 100%;
-  margin-bottom: -3%;
+  margin-bottom: -2%;
 }
 
 /* about.html styles */
+.about {
+  text-align: center;
+}
+
+.about-img {
+  width: 90%;
+}
 .about-text {
   text-align: left;
-  margin: 2% 3%;
+  margin: 2% 4%;
 }
 
 /* add.html styles */
@@ -53,7 +60,7 @@ body {
 }
 
 .footer {
-  height: 5%;
+  height: 10%;
   margin: 0;
   bottom: 10px;
 }
