@@ -11,6 +11,9 @@ Incase the link doesn't work, visit the offical repo for the project-
 ## Project Overview
 retro50 was designed to help students study and revise using a retrospective revision timetable, implemented in Flask. Using a SQLite database, it logs revision entries, keeps track of the subjects, and stores the timetable itself, which is managed by the logic in ```app.py```
 
+![A retrospective revision timetable](https://github.com/agentblack-6000/retro50/blob/master/static/images/retro_1.png?raw=true)
+A retrospective revision timetable.
+
 ## Project Files
 The project is a Flask application and has a ```templates/``` directory to manage the webpages and the ```static/``` directory to manage the styling, and a little bit of JS in situations where it is easier to update the DOM without reloading the page, as seen in-
 - ```revision.html```  uses a bit of JS in ```<script>``` tags to display the proficiency slider value(used to log revisions in a retrospective revision timetable)
