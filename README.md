@@ -6,13 +6,14 @@ Visit the project here(implemented in Railway)-
 [Retro50](https://retro50-production.up.railway.app)
 
 Incase the link doesn't work, visit the offical repo for the project-
-[retro50 repo](https://github.com/agentblack-6000/retro50)
+[retro50](https://github.com/agentblack-6000/retro50)
 
 ## Project Overview
 retro50 was designed to help students study and revise using a retrospective revision timetable, implemented in Flask. Using a SQLite database, it logs revision entries, keeps track of the subjects, and stores the timetable itself, which is managed by the logic in ```app.py```
 
-![A retrospective revision timetable](https://github.com/agentblack-6000/retro50/blob/master/static/images/retro_1.png?raw=true)
 A retrospective revision timetable.
+![A retrospective revision timetable](https://github.com/agentblack-6000/retro50/blob/master/static/images/retro_1.png?raw=true)
+
 
 ## Project Files
 The project is a Flask application and has a ```templates/``` directory to manage the webpages and the ```static/``` directory to manage the styling, and a little bit of JS in situations where it is easier to update the DOM without reloading the page, as seen in-
