@@ -1,5 +1,4 @@
 # retro50
-#### Video Demo:  <URL HERE>
 #### Description:
 Welcome to retro50! A Flask web app implementing a retrospective revision timetable for Harvard's CS50's final project.
 
@@ -12,23 +11,23 @@ The project is a Flask application and has a ```templates/``` directory to manag
 
 - The JS logic for ```timer.html```, implemented in ```timer.js```, made in Javascript instead of Python as it is easier to constantly update the DOM using JS
 
-#### ```templates/```
+##### ```templates/```
 All of the templates extend from ```layout.html``` making it easy to add/remove basic elements from each page.
 
 In addition to this, each webpage is also web accessible, with inputs containg proper ```aria-label``` attributes and ```<label>``` tags, and the color scheme is also fairly simple to ensure everyone can use retro50.
 
-#### ```static/```
+##### ```static/```
 Contains ```images/```, the stylesheet, and ```timer.js``` to manage ```timer.html```
 
-#### ```app.py```
+##### ```app.py```
 Handles the logic of each of the routes, controls database queries, and some specific logic required for each route
 
-#### ```helpers.py```
+##### ```helpers.py```
 Contains a login decorator implemented in CS50 to ensure users are logged in while accessing certain routes and a ```validate_password()``` function, which are implemented in a separate file to-
 - Keep the logic for the routes and database queries separate
 - Easier to implement new functionality for the application without cluttering the ```app.py``` file.
 
-#### ```timetable.db```
+##### ```timetable.db```
 A SQLite database where the subjects, timetable, and users are stored, managed using CS50's library in ```app.py```
 
 ### How do I get started?
